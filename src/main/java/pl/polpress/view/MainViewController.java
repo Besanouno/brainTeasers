@@ -7,6 +7,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import pl.polpress.util.Config;
+import pl.polpress.wordPuzzle.PuzzlePrintGenerator;
 
 public class MainViewController {
 	@FXML
@@ -103,5 +104,6 @@ public class MainViewController {
 
 	private void generatePuzzle() {
 		reinitializeEmptyAmountField();
+		new PuzzlePrintGenerator().create(Integer.parseInt(tfAmount.getText()));
 	}
 }

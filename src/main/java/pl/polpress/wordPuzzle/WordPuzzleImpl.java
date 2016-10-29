@@ -48,7 +48,7 @@ public class WordPuzzleImpl implements WordPuzzle {
 		for (int i = 0; i < word.length(); i++) {
 			int y = coordinatesProvider.getY(i);
 			int x = coordinatesProvider.getX(i);
-			if (!board.areCoordinatesInsideBounds(y, x) || board.isEmpty(y,x) && board.get(y,x) != word.charAt(i)) {
+			if (!board.areCoordinatesInsideBounds(y, x) || (!board.isEmpty(y,x) && board.get(y,x) != word.charAt(i))) {
 				return false;
 			}
 		}

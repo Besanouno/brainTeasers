@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="226.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pl.polpress.view.MainViewController">
+   <children>
+      <Label layoutX="48.0" layoutY="55.0" text="Folder docelowy:" />
+      <TextField fx:id="tfDirectory" layoutX="48.0" layoutY="71.0" prefHeight="26.0" prefWidth="487.0" />
+      <TextField fx:id="tfAmount" layoutX="48.0" layoutY="155.0" prefHeight="26.0" prefWidth="139.0" />
+      <Label layoutX="48.0" layoutY="139.0" text="Ilość:" />
+      <Button fx:id="btnRun" layoutX="268.0" layoutY="123.0" mnemonicParsing="false" onAction="#generate" prefHeight="58.0" prefWidth="261.0" text="Generuj!" />
+      <Label fx:id="lblDirectory" layoutX="47.0" layoutY="97.0" text="Nie można zapisać podanej lokalizacji!" textFill="RED" visible="false" />
+      <Label fx:id="lblMax" layoutX="47.0" layoutY="181.0" text="Możesz wybrać maksymalnie 100 nowych wykreślanek" textFill="RED" visible="false" />
+      <Label fx:id="lblPositive" layoutX="47.0" layoutY="181.0" text="Wpisz liczbe dodatnią" textFill="RED" visible="false" />
+      <Label fx:id="lblWait" layoutX="47.0" layoutY="14.0" text="Czekaj... trwa generowanie" textFill="#3c0de8" visible="false" />
+   </children>
+</AnchorPane>

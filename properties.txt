@@ -1,0 +1,5 @@
+#Wed Oct 26 22:36:46 CEST 2016
+default_dir=nevermind
+amount=1
+info=true
+errors=true
