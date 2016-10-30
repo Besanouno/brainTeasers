@@ -1,17 +1,7 @@
 package pl.polpress.pdf;
 
-import org.eclipse.birt.core.exception.BirtException;
-import org.eclipse.birt.core.framework.Platform;
-import org.eclipse.birt.report.engine.api.EngineConfig;
-import org.eclipse.birt.report.engine.api.IReportEngine;
-import org.eclipse.birt.report.engine.api.IReportEngineFactory;
-import org.eclipse.birt.report.engine.api.IReportRunnable;
-import org.eclipse.birt.report.engine.api.IRunAndRenderTask;
-import org.eclipse.birt.report.engine.api.PDFRenderOption;
-import org.eclipse.birt.report.engine.api.RenderOption;
-
 public class PuzzlePrinter {
-	public boolean print() {
+/*public boolean print() {
 		try {
 			EngineConfig config = prepareConfig();
 			Platform.startup( config );
@@ -25,12 +15,12 @@ public class PuzzlePrinter {
 
 			RenderOption options = new PDFRenderOption();		
 			options.setOutputFileName("output/report.pdf");
-			options.setOutputFormat("pdf");
+			options.setOutputFormat("pdf");*/
 /*
 			RenderOption options = new HTMLRenderOption();
 			options.setOutputFileName("output/report.html");
 			options.setOutputFormat("html");
-	*/	
+	*/	/*
 			task.setRenderOption(options);
 			task.run();
 			task.close();
@@ -47,5 +37,5 @@ public class PuzzlePrinter {
 		EngineConfig config = new EngineConfig( );			
 		config.setLogConfig("/tmp/logs", java.util.logging.Level.FINEST);
 		return config;
-	}
+	}*/
 }

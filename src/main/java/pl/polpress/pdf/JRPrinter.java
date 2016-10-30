@@ -1,21 +1,27 @@
 package pl.polpress.pdf;
 
+import java.awt.image.BufferedImage;
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
+import java.io.IOException;
 import java.io.InputStream;
-import java.io.OutputStream;
 import java.net.URISyntaxException;
 import java.util.HashMap;
 
-import net.sf.jasperreports.engine.JRDataSource;
+import javax.imageio.ImageIO;
+
+import net.sf.jasperreports.engine.DefaultJasperReportsContext;
 import net.sf.jasperreports.engine.JREmptyDataSource;
 import net.sf.jasperreports.engine.JRException;
+import net.sf.jasperreports.engine.JasperCompileManager;
 import net.sf.jasperreports.engine.JasperExportManager;
 import net.sf.jasperreports.engine.JasperFillManager;
 import net.sf.jasperreports.engine.JasperPrint;
+import net.sf.jasperreports.engine.JasperPrintManager;
 import net.sf.jasperreports.engine.data.JRBeanCollectionDataSource;
-import pl.polpress.Main;
 import pl.polpress.util.Logger;
 import pl.polpress.util.Parser;
 import pl.polpress.wordPuzzle.WordPuzzle;
@@ -27,10 +33,15 @@ public class JRPrinter {
 
 	public boolean print() {
 		try {
-			this.generatePdf(this.createPuzzle(), "output/puzzle.pdf");
+			// this.generatePdf(this.createPuzzle(), "output/puzzle.pdf");
+			this.exportPdf(this.createPuzzle(), "output/puzzle.pdf");
 		} catch (FileNotFoundException | NullPointerException | URISyntaxException | JRException e) {
 			this.logger.logError(new String[] { "<PuzzlePdfPrinter.print>", e.getMessage(), e.getClass().getName() });
+			e.printStackTrace();
 			return false;
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		}
 		return true;
 	}
@@ -57,20 +68,53 @@ public class JRPrinter {
 		return words;
 	}
 
-	private void generatePdf(WordPuzzle puzzle, String path)
-			throws JRException, FileNotFoundException, URISyntaxException {
+	private void exportPdf(WordPuzzle puzzle, String path) throws JRException, URISyntaxException, IOException {
 		String patternFile = "src/main/resources/puzzle22.jasper";
-		String outputFile = String.valueOf(path) + ".pdf";
+		String outputFile = "output/puzzleImg.png";
 		this.logger.logInfo(new String[] { "Try to generate pdf" });
 		HashMap<String, Object> parameters = new HashMap<String, Object>();
 		JRBeanCollectionDataSource dataSource = new JRBeanCollectionDataSource(puzzle.getBoardRows());
 		parameters.put("puzzle", (Object) dataSource);
 		parameters.put("words", new Parser().getPrintableWordsList(puzzle.getWordsToFind()));
-		parameters.put("image", Main.class.getResourceAsStream("src/main/resources/wzor.png"));
-		JasperPrint reportPrint = JasperFillManager.fillReport( patternFile, parameters,
-				(JRDataSource) new JREmptyDataSource());
+		JasperPrint reportPrint = JasperFillManager.fillReport(patternFile, parameters, new JREmptyDataSource());
 		FileOutputStream outputStream = new FileOutputStream(new File(outputFile));
-		JasperExportManager.exportReportToPdfStream((JasperPrint) reportPrint, (OutputStream) outputStream);
+		DefaultJasperReportsContext.getInstance();
+		JasperPrintManager printManager = JasperPrintManager.getInstance(DefaultJasperReportsContext.getInstance());
+		BufferedImage renderedImage = (BufferedImage) printManager.printPageToImage(reportPrint, 0, 3f);
+		ImageIO.write(renderedImage, "png", outputStream);
+		ByteArrayOutputStream os = new ByteArrayOutputStream();
+		ImageIO.write(renderedImage, "png", os);
+		InputStream is = new ByteArrayInputStream(os.toByteArray());
+		createImgPdf(is);
+		this.logger.logInfo(new String[] { "Pdf generated" });
+	}
+
+	private void createImgPdf(InputStream inputStream) throws JRException, FileNotFoundException {
+		String patternFile = "src/main/resources/imagePdf.jrxml";
+		String outputFile = "output/newPuzzle2.pdf";
+		HashMap<String, Object> parameters = new HashMap<String, Object>();
+		parameters.put("image", inputStream);
+		JasperPrint reportPrint = JasperFillManager.fillReport(JasperCompileManager.compileReport(patternFile),
+				parameters, new JREmptyDataSource());
+		FileOutputStream outputStream = new FileOutputStream(new File(outputFile));
+		JasperExportManager.exportReportToPdfStream(reportPrint, outputStream);
+	}
+
+	private void generatePdf(WordPuzzle puzzle, String path)
+			throws JRException, FileNotFoundException, URISyntaxException {
+		String patternFile = "src/main/resources/puzzle22.jasper";
+		String outputFile = String.valueOf(path);
+		this.logger.logInfo(new String[] { "Try to generate pdf" });
+		HashMap<String, Object> parameters = new HashMap<String, Object>();
+		JRBeanCollectionDataSource dataSource = new JRBeanCollectionDataSource(puzzle.getBoardRows());
+		parameters.put("puzzle", (Object) dataSource);
+		parameters.put("words", new Parser().getPrintableWordsList(puzzle.getWordsToFind()));
+
+		JasperPrint reportPrint = JasperFillManager.fillReport(patternFile, parameters, new JREmptyDataSource());
+
+		FileOutputStream outputStream = new FileOutputStream(new File(outputFile));
+		JasperExportManager.exportReportToPdfStream(reportPrint, outputStream);
+
 		this.logger.logInfo(new String[] { "Pdf generated" });
 	}
 }

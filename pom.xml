@@ -4,13 +4,7 @@
 	<groupId>pl.polpress</groupId>
 	<artifactId>BrainTeasers</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<dependencies>
-		<!-- https://mvnrepository.com/artifact/org.eclipse.birt.runtime/org.eclipse.birt.runtime -->
-		<dependency>
-			<groupId>org.eclipse.birt.runtime</groupId>
-			<artifactId>org.eclipse.birt.runtime</artifactId>
-			<version>4.2.0</version>
-		</dependency>
+	<dependencies> 
 		<!-- https://mvnrepository.com/artifact/net.sf.jasperreports/jasperreports -->
 		<dependency>
 			<groupId>net.sf.jasperreports</groupId>
