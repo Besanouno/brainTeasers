@@ -13,7 +13,6 @@ import java.util.HashMap;
 
 import javax.imageio.ImageIO;
 
-import net.sf.jasperreports.engine.DefaultJasperReportsContext;
 import net.sf.jasperreports.engine.JREmptyDataSource;
 import net.sf.jasperreports.engine.JRException;
 import net.sf.jasperreports.engine.JasperCompileManager;
@@ -31,17 +30,12 @@ import pl.polpress.wordPuzzle.net.WordsDownloaderImpl;
 public class JRPrinter {
 	private final Logger logger = Logger.createLogger();
 
-	public boolean print() {
-		try {
-			// this.generatePdf(this.createPuzzle(), "output/puzzle.pdf");
-			this.exportPdf(this.createPuzzle(), "output/puzzle.pdf");
-		} catch (FileNotFoundException | NullPointerException | URISyntaxException | JRException e) {
-			this.logger.logError(new String[] { "<PuzzlePdfPrinter.print>", e.getMessage(), e.getClass().getName() });
-			e.printStackTrace();
+	public boolean print(String path) {
+		try { 
+			exportUsingPng(createPuzzle(), path); 
+		} catch (NullPointerException | URISyntaxException | JRException | IOException e) {
+			logger.logError("[JRPrinter.print] ", e.getClass().getName(), e.getMessage());
 			return false;
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
 		}
 		return true;
 	}
@@ -49,72 +43,52 @@ public class JRPrinter {
 	private WordPuzzle createPuzzle() {
 		WordPuzzle puzzle;
 		String[] words = this.downloadWords();
-		this.logger.logInfo(new String[] { "Try to create puzzles..." });
-		while ((puzzle = new WordPuzzleGeneratorImpl().generatePuzzle()) == null) {
+		while ((puzzle = new WordPuzzleGeneratorImpl().generatePuzzle(words)) == null) {
 		}
-		this.logger.logInfo(new String[] { "Puzzles created" });
 		return puzzle;
 	}
 
 	private String[] downloadWords() {
 		String[] words;
-		this.logger.logInfo(new String[] { "Try to download words" });
 		int counter = 0;
 		while ((words = new WordsDownloaderImpl().downloadWords()) == null) {
 			if (++counter != 100)
 				continue;
 		}
-		this.logger.logInfo(new String[] { "Words downloaded" });
 		return words;
 	}
 
-	private void exportPdf(WordPuzzle puzzle, String path) throws JRException, URISyntaxException, IOException {
-		String patternFile = "src/main/resources/puzzle22.jasper";
-		String outputFile = "output/puzzleImg.png";
-		this.logger.logInfo(new String[] { "Try to generate pdf" });
+	private void exportUsingPng(WordPuzzle puzzle, String path) throws JRException, URISyntaxException, IOException {
+		String patternFile = "src/main/resources/" + puzzle.getName() + ".jasper";
+
 		HashMap<String, Object> parameters = new HashMap<String, Object>();
 		JRBeanCollectionDataSource dataSource = new JRBeanCollectionDataSource(puzzle.getBoardRows());
 		parameters.put("puzzle", (Object) dataSource);
 		parameters.put("words", new Parser().getPrintableWordsList(puzzle.getWordsToFind()));
 		JasperPrint reportPrint = JasperFillManager.fillReport(patternFile, parameters, new JREmptyDataSource());
-		FileOutputStream outputStream = new FileOutputStream(new File(outputFile));
-		DefaultJasperReportsContext.getInstance();
-		JasperPrintManager printManager = JasperPrintManager.getInstance(DefaultJasperReportsContext.getInstance());
-		BufferedImage renderedImage = (BufferedImage) printManager.printPageToImage(reportPrint, 0, 3f);
-		ImageIO.write(renderedImage, "png", outputStream);
-		ByteArrayOutputStream os = new ByteArrayOutputStream();
-		ImageIO.write(renderedImage, "png", os);
-		InputStream is = new ByteArrayInputStream(os.toByteArray());
-		createImgPdf(is);
-		this.logger.logInfo(new String[] { "Pdf generated" });
+		createPdf(reportPrint, path, 8); 
 	}
 
-	private void createImgPdf(InputStream inputStream) throws JRException, FileNotFoundException {
+	private void createPdf(JasperPrint report, String path, float zoom) throws IOException, JRException {
+		BufferedImage renderedImage = (BufferedImage) JasperPrintManager.printPageToImage(report, 0, zoom);
+
+		createPdfContainingPng(getImageInputStream(renderedImage), path);
+	} 
+	
+	private InputStream getImageInputStream(BufferedImage image) throws IOException {
+		ByteArrayOutputStream os = new ByteArrayOutputStream();
+		ImageIO.write(image, "png", os);
+		return new ByteArrayInputStream(os.toByteArray());
+	}
+
+	private void createPdfContainingPng(InputStream image, String outputName)
+			throws FileNotFoundException, JRException {
 		String patternFile = "src/main/resources/imagePdf.jrxml";
-		String outputFile = "output/newPuzzle2.pdf";
 		HashMap<String, Object> parameters = new HashMap<String, Object>();
-		parameters.put("image", inputStream);
+		parameters.put("image", image);
 		JasperPrint reportPrint = JasperFillManager.fillReport(JasperCompileManager.compileReport(patternFile),
 				parameters, new JREmptyDataSource());
-		FileOutputStream outputStream = new FileOutputStream(new File(outputFile));
+		FileOutputStream outputStream = new FileOutputStream(new File(outputName));
 		JasperExportManager.exportReportToPdfStream(reportPrint, outputStream);
-	}
-
-	private void generatePdf(WordPuzzle puzzle, String path)
-			throws JRException, FileNotFoundException, URISyntaxException {
-		String patternFile = "src/main/resources/puzzle22.jasper";
-		String outputFile = String.valueOf(path);
-		this.logger.logInfo(new String[] { "Try to generate pdf" });
-		HashMap<String, Object> parameters = new HashMap<String, Object>();
-		JRBeanCollectionDataSource dataSource = new JRBeanCollectionDataSource(puzzle.getBoardRows());
-		parameters.put("puzzle", (Object) dataSource);
-		parameters.put("words", new Parser().getPrintableWordsList(puzzle.getWordsToFind()));
-
-		JasperPrint reportPrint = JasperFillManager.fillReport(patternFile, parameters, new JREmptyDataSource());
-
-		FileOutputStream outputStream = new FileOutputStream(new File(outputFile));
-		JasperExportManager.exportReportToPdfStream(reportPrint, outputStream);
-
-		this.logger.logInfo(new String[] { "Pdf generated" });
-	}
+	} 
 }

@@ -1,17 +1,15 @@
 package pl.polpress;
 
 import javafx.application.Application;
-import javafx.stage.Stage;
-import pl.polpress.pdf.JRPrinter;
+import javafx.stage.Stage; 
 
-public class Main  {
+public class Main extends Application {
 	public static void main(String[] args) {
-		new JRPrinter().print();
-		System.out.println("już");
+		launch(args); 
 	}
-/*
+
 	@Override
 	public void start(Stage primaryStage) throws Exception {
 		new Launcher().start(primaryStage);
-	}*/
+	}
 }

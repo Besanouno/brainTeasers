@@ -7,4 +7,5 @@ public interface WordPuzzle {
 	void fillEmptyFields();
 	List<Row> getBoardRows();
 	List<String> getWordsToFind();
+	String getName();
 }

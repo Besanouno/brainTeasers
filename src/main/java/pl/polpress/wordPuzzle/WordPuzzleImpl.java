@@ -43,6 +43,11 @@ public class WordPuzzleImpl implements WordPuzzle {
 	public List<String> getWordsToFind() {
 		return wordsToFind;
 	}
+	
+	@Override
+	public String getName() {
+		return "puzzle" + board.getWidth();
+	}
 
 	private boolean canInsert(String word, Coordinates coordinatesProvider) {
 		for (int i = 0; i < word.length(); i++) {
@@ -63,4 +68,5 @@ public class WordPuzzleImpl implements WordPuzzle {
 		}
 		wordsToFind.add(word.toLowerCase());
 	}
+
 }

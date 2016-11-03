@@ -1,57 +1,19 @@
 package pl.polpress.wordPuzzle;
 
 import java.util.Arrays;
-import java.util.List;
 import java.util.Random;
-
-import pl.polpress.exceptions.GeneratingException;
-import pl.polpress.wordPuzzle.net.WordsDownloader;
-import pl.polpress.wordPuzzle.net.WordsDownloaderImpl;
 
 public class WordPuzzleGeneratorImpl implements WordPuzzleGenerator {
 	private Random random = new Random();
 	private int height;
-	private int width;
+	private int width; 
  
-	public List<Row> generateRows() {
-		WordsDownloader downloader = new WordsDownloaderImpl();
-		String[] words;
-		while ((words = downloader.downloadWords()) == null) {
-		}
-		WordPuzzle puzzle;
-		while ((puzzle = generateThisShit(words)) == null) {
-		}
-		System.out.println("generated");
-		return puzzle.getBoardRows();
-	}
-
-	public WordPuzzle generatePuzzle() {
-		WordsDownloader downloader = new WordsDownloaderImpl();
-		String[] words;
-		while ((words = downloader.downloadWords()) == null) {
-		}
-		WordPuzzle puzzle;
-		while ((puzzle = generateThisShit(words)) == null) {
-		}
-		System.out.println("generated");
-		return puzzle;
-	}
-
-	private WordPuzzle generateThisShit(String[] words) {
-		try {
-			return generatePuzzle(words);
-		} catch (GeneratingException e) {
-			return null;
-		}
-	}
- 
-	 
-	public WordPuzzle generatePuzzle(String[] words) throws GeneratingException {
+	public WordPuzzle generatePuzzle(String[] words) {
 		WordPuzzle puzzle = createBoardWithProperlyDimensions(countLettersInWords(words));
 		Arrays.sort(words, (x, y) -> y.length() - x.length());
 		for (String word : words) {
 			if (!insertWord(word, puzzle)) {
-				throw new GeneratingException("Puzzle creation failure");
+				return null;
 			}
 		}
 		puzzle.fillEmptyFields();

@@ -12,12 +12,12 @@ public class Launcher {
 	private final Logger logger = Logger.createLogger();
 	
 	public void start(Stage stage) { 
-		/*try {
+		try {
 			run(stage);
 		} catch(IOException e) {
 			logger.logError("[Launcher.start]", e.getMessage());
 			e.printStackTrace();
-		}*/
+		}
 	}
 	
 	private void run(Stage stage) throws IOException {

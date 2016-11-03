@@ -6,8 +6,8 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import pl.polpress.pdf.JRPrinter;
 import pl.polpress.util.Config;
-import pl.polpress.wordPuzzle.PuzzlePrintGenerator;
 
 public class MainViewController {
 	@FXML
@@ -104,6 +104,13 @@ public class MainViewController {
 
 	private void generatePuzzle() {
 		reinitializeEmptyAmountField();
-		new PuzzlePrintGenerator().create(Integer.parseInt(tfAmount.getText()));
+		int count = Integer.parseInt(tfAmount.getText());
+		int successful = 0;
+		while (successful < count) {
+			if (new JRPrinter().print(tfDirectory.getText() + File.separator + successful + ".pdf")) {
+				successful++;
+			}
+
+		}
 	}
 }
