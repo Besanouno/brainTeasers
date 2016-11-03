@@ -24,38 +24,18 @@ import net.sf.jasperreports.engine.data.JRBeanCollectionDataSource;
 import pl.polpress.util.Logger;
 import pl.polpress.util.Parser;
 import pl.polpress.wordPuzzle.WordPuzzle;
-import pl.polpress.wordPuzzle.WordPuzzleGeneratorImpl;
-import pl.polpress.wordPuzzle.net.WordsDownloaderImpl;
 
 public class JRPrinter {
 	private final Logger logger = Logger.createLogger();
 
-	public boolean print(String path) {
+	public boolean print(WordPuzzle puzzle, String path) {
 		try { 
-			exportUsingPng(createPuzzle(), path); 
+			exportUsingPng(puzzle, path); 
 		} catch (NullPointerException | URISyntaxException | JRException | IOException e) {
 			logger.logError("[JRPrinter.print] ", e.getClass().getName(), e.getMessage());
 			return false;
 		}
 		return true;
-	}
-
-	private WordPuzzle createPuzzle() {
-		WordPuzzle puzzle;
-		String[] words = this.downloadWords();
-		while ((puzzle = new WordPuzzleGeneratorImpl().generatePuzzle(words)) == null) {
-		}
-		return puzzle;
-	}
-
-	private String[] downloadWords() {
-		String[] words;
-		int counter = 0;
-		while ((words = new WordsDownloaderImpl().downloadWords()) == null) {
-			if (++counter != 100)
-				continue;
-		}
-		return words;
 	}
 
 	private void exportUsingPng(WordPuzzle puzzle, String path) throws JRException, URISyntaxException, IOException {
@@ -66,7 +46,7 @@ public class JRPrinter {
 		parameters.put("puzzle", (Object) dataSource);
 		parameters.put("words", new Parser().getPrintableWordsList(puzzle.getWordsToFind()));
 		JasperPrint reportPrint = JasperFillManager.fillReport(patternFile, parameters, new JREmptyDataSource());
-		createPdf(reportPrint, path, 8); 
+		createPdf(reportPrint, path, 6); 
 	}
 
 	private void createPdf(JasperPrint report, String path, float zoom) throws IOException, JRException {

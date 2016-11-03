@@ -1,3 +1,12 @@
 (02-11-2016 17:46:21) ERROR: [JRPrinter.print]  net.sf.jasperreports.engine.JRException java.io.FileNotFoundException: src/main/resources/puzzle21.jasper 
 (02-11-2016 17:47:59) ERROR: [JRPrinter.print]  net.sf.jasperreports.engine.JRException java.io.FileNotFoundException: src/main/resources/puzzle21.jasper 
 (02-11-2016 17:47:59) ERROR: [JRPrinter.print]  net.sf.jasperreports.engine.JRException java.io.FileNotFoundException: src/main/resources/puzzle21.jasper 
+(03-11-2016 18:11:07) ERROR: [JRPrinter.print]  net.sf.jasperreports.engine.JRException java.io.FileNotFoundException: src/main/resources/puzzle21.jasper 
+(03-11-2016 18:11:08) ERROR: [JRPrinter.print]  net.sf.jasperreports.engine.JRException java.io.FileNotFoundException: src/main/resources/puzzle21.jasper 
+(03-11-2016 18:11:08) ERROR: [JRPrinter.print]  net.sf.jasperreports.engine.JRException java.io.FileNotFoundException: src/main/resources/puzzle21.jasper 
+(03-11-2016 18:11:09) ERROR: [JRPrinter.print]  net.sf.jasperreports.engine.JRException java.io.FileNotFoundException: src/main/resources/puzzle21.jasper 
+(03-11-2016 18:11:28) ERROR: [JRPrinter.print]  net.sf.jasperreports.engine.JRException java.io.FileNotFoundException: src/main/resources/puzzle21.jasper 
+(03-11-2016 18:41:53) ERROR: [JRPrinter.print]  net.sf.jasperreports.engine.JRException java.io.FileNotFoundException: src/main/resources/puzzle21.jasper 
+(03-11-2016 18:42:07) ERROR: [JRPrinter.print]  net.sf.jasperreports.engine.JRException java.io.FileNotFoundException: src/main/resources/puzzle20.jasper 
+(03-11-2016 18:42:08) ERROR: [JRPrinter.print]  net.sf.jasperreports.engine.JRException java.io.FileNotFoundException: src/main/resources/puzzle23.jasper 
+(03-11-2016 18:42:08) ERROR: [JRPrinter.print]  net.sf.jasperreports.engine.JRException java.io.FileNotFoundException: src/main/resources/puzzle21.jasper 

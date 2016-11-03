@@ -8,7 +8,15 @@ public class WordPuzzleGeneratorImpl implements WordPuzzleGenerator {
 	private int height;
 	private int width; 
  
+	@Override
 	public WordPuzzle generatePuzzle(String[] words) {
+		WordPuzzle puzzle;
+		while ((puzzle = createPuzzle(words)) == null) {
+		}
+		return puzzle;
+	}
+ 
+	public WordPuzzle createPuzzle(String[] words) {
 		WordPuzzle puzzle = createBoardWithProperlyDimensions(countLettersInWords(words));
 		Arrays.sort(words, (x, y) -> y.length() - x.length());
 		for (String word : words) {
@@ -19,7 +27,7 @@ public class WordPuzzleGeneratorImpl implements WordPuzzleGenerator {
 		puzzle.fillEmptyFields();
 		return puzzle;
 	}
-
+	
 	private int countLettersInWords(String[] words) {
 		int sumOfLetters = 0;
 		for (String word : words) {

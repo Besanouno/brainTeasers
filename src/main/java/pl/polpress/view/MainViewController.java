@@ -2,12 +2,16 @@ package pl.polpress.view;
 
 import java.io.File;
 
+import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import pl.polpress.pdf.JRPrinter;
 import pl.polpress.util.Config;
+import pl.polpress.wordPuzzle.WordPuzzle;
+import pl.polpress.wordPuzzle.WordPuzzleGeneratorImpl;
+import pl.polpress.wordPuzzle.net.WordsDownloaderImpl;
 
 public class MainViewController {
 	@FXML
@@ -104,13 +108,40 @@ public class MainViewController {
 
 	private void generatePuzzle() {
 		reinitializeEmptyAmountField();
-		int count = Integer.parseInt(tfAmount.getText());
-		int successful = 0;
-		while (successful < count) {
-			if (new JRPrinter().print(tfDirectory.getText() + File.separator + successful + ".pdf")) {
-				successful++;
-			}
+		int count = Integer.parseInt(tfAmount.getText()); 
+		generatePuzzle(count, tfDirectory.getText() + File.separator);
+	}
 
+	private void generatePuzzle(int count, String path) { 
+		lblWait.setVisible(true);
+		btnRun.setDisable(true);
+		new Thread(() -> {
+			int successful = 0;
+			while (successful < count) {
+				String filename = path + successful + ".pdf";
+				if (new JRPrinter().print(createPuzzle(), filename)) {
+					successful++;
+				}
+			}
+			Platform.runLater(() -> {
+				lblWait.setText("Wygenerowano " + count + " wykreślanek");
+				btnRun.setDisable(false);
+			});
+		}).start();
+	}
+
+	private WordPuzzle createPuzzle() {
+		String[] words = this.downloadWords();
+		return new WordPuzzleGeneratorImpl().generatePuzzle(words);
+	}
+
+	private String[] downloadWords() {
+		String[] words;
+		int counter = 0;
+		while ((words = new WordsDownloaderImpl().downloadWords()) == null) {
+			if (++counter != 100)
+				continue;
 		}
+		return words;
 	}
 }
