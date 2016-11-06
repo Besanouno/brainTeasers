@@ -1,5 +1,6 @@
-#Thu Nov 03 18:41:37 CET 2016
+#Sat Nov 05 18:03:00 CET 2016
+default_name=wykreslanka
 default_dir=output
-amount=4
+amount=100
 info=true
 errors=true

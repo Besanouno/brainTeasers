@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Created with Jaspersoft Studio version 6.3.1.final using JasperReports Library version 6.3.1  -->
-<!-- 2016-10-29T22:16:13 -->
-<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="table" pageWidth="550" pageHeight="400" orientation="Landscape" whenNoDataType="NoDataSection" columnWidth="510" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="2" uuid="1aa2b905-9640-4a96-9ad2-f3bb31be9e1c">
+<!-- 2016-11-05T07:11:33 -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="table" pageWidth="550" pageHeight="380" orientation="Landscape" whenNoDataType="NoDataSection" columnWidth="510" leftMargin="20" rightMargin="20" topMargin="10" bottomMargin="10" uuid="1aa2b905-9640-4a96-9ad2-f3bb31be9e1c">
 	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="One Empty Record"/>
 	<property name="com.jaspersoft.studio.unit." value="pixel"/>
 	<import value="net.sf.jasperreports.engine.data.*"/>
@@ -97,23 +97,22 @@
 		<band splitType="Stretch"/>
 	</background>
 	<detail>
-		<band height="339" splitType="Stretch">
+		<band height="340" splitType="Stretch">
+			<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
 			<staticText>
-				<reportElement x="-2" y="0" width="198" height="30" uuid="61be2ed0-5df0-4159-b7d4-c85b45f4ee9f">
-					<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
-				</reportElement>
+				<reportElement x="0" y="0" width="198" height="30" uuid="61be2ed0-5df0-4159-b7d4-c85b45f4ee9f"/>
 				<textElement>
 					<font size="18" isBold="true"/>
 				</textElement>
 				<text><![CDATA[Wykreślanka]]></text>
 			</staticText>
 			<componentElement>
-				<reportElement stretchType="ContainerHeight" x="-2" y="39" width="529" height="240" uuid="e3398a7d-6db7-4e6d-9ff8-5a71d7a7b7da">
+				<reportElement stretchType="ContainerHeight" x="0" y="41" width="529" height="240" uuid="e3398a7d-6db7-4e6d-9ff8-5a71d7a7b7da">
 					<property name="com.jaspersoft.studio.layout" value="com.jaspersoft.studio.editor.layout.VerticalRowLayout"/>
 					<property name="com.jaspersoft.studio.table.style.table_header" value="Table 1_TH"/>
 					<property name="com.jaspersoft.studio.table.style.column_header" value="Table 1_CH"/>
 					<property name="com.jaspersoft.studio.table.style.detail" value="Table 1_TD"/>
-					<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
 				</reportElement>
 				<jr:table xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd">
 					<datasetRun subDataset="PuzzleDataset" uuid="30ec6317-3c6d-4b92-912d-6a13a6b31d72">
@@ -410,18 +409,25 @@
 				</jr:table>
 			</componentElement>
 			<staticText>
-				<reportElement positionType="Float" stretchType="ContainerBottom" x="-2" y="285" width="140" height="15" isPrintWhenDetailOverflows="true" uuid="c2acb6e5-bbb0-439a-91d1-eb536c25cef9">
+				<reportElement positionType="Float" stretchType="ContainerBottom" x="0" y="290" width="140" height="15" isPrintWhenDetailOverflows="true" uuid="c2acb6e5-bbb0-439a-91d1-eb536c25cef9">
 					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
 				</reportElement>
 				<text><![CDATA[Słowa do odnalezienia:]]></text>
 			</staticText>
 			<textField>
-				<reportElement positionType="Float" stretchType="ContainerBottom" x="-3" y="300" width="527" height="30" isPrintWhenDetailOverflows="true" uuid="d94ef7aa-7dc7-4816-acc3-64b3a6301c09"/>
+				<reportElement positionType="Float" stretchType="ContainerBottom" x="0" y="305" width="519" height="30" isPrintWhenDetailOverflows="true" uuid="d94ef7aa-7dc7-4816-acc3-64b3a6301c09">
+					<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
+				</reportElement>
 				<textFieldExpression><![CDATA[$P{words}]]></textFieldExpression>
 			</textField>
 			<image>
-				<reportElement x="460" y="-10" width="39" height="40" uuid="32737ab2-5ab9-4886-82f5-124f58d67073"/>
-				<imageExpression><![CDATA["src/main/resources/wzor.png"]]></imageExpression>
+				<reportElement x="480" y="0" width="39" height="40" uuid="32737ab2-5ab9-4886-82f5-124f58d67073">
+					<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
+				</reportElement>
+				<imageExpression><![CDATA[$P{image}]]></imageExpression>
 			</image>
 		</band>
 	</detail>

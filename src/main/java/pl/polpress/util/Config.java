@@ -47,6 +47,7 @@ public class Config {
 		try (BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(CONFIG_FILEPATH, true))) {
 			bufferedWriter.write("errors=false" + System.lineSeparator());
 			bufferedWriter.write("info=false" + System.lineSeparator());
+			bufferedWriter.write("default_name=wykreslanka" + System.lineSeparator());
 			bufferedWriter.flush();
 		} catch (IOException e) {
 		}

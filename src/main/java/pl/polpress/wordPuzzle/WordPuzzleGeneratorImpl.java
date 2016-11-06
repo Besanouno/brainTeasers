@@ -56,6 +56,7 @@ public class WordPuzzleGeneratorImpl implements WordPuzzleGenerator {
 			height = 12;
 			width = 22;
 		}
+		width = 22;
 		return new WordPuzzleImpl(height, width);
 	}
 

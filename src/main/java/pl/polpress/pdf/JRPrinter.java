@@ -21,6 +21,7 @@ import net.sf.jasperreports.engine.JasperFillManager;
 import net.sf.jasperreports.engine.JasperPrint;
 import net.sf.jasperreports.engine.JasperPrintManager;
 import net.sf.jasperreports.engine.data.JRBeanCollectionDataSource;
+import pl.polpress.Main;
 import pl.polpress.util.Logger;
 import pl.polpress.util.Parser;
 import pl.polpress.wordPuzzle.WordPuzzle;
@@ -33,25 +34,32 @@ public class JRPrinter {
 			exportUsingPng(puzzle, path); 
 		} catch (NullPointerException | URISyntaxException | JRException | IOException e) {
 			logger.logError("[JRPrinter.print] ", e.getClass().getName(), e.getMessage());
+			e.printStackTrace();
 			return false;
 		}
 		return true;
 	}
 
 	private void exportUsingPng(WordPuzzle puzzle, String path) throws JRException, URISyntaxException, IOException {
-		String patternFile = "src/main/resources/" + puzzle.getName() + ".jasper";
-
+		String patternFile =  "/" + puzzle.getName() + ".jasper";
+		
 		HashMap<String, Object> parameters = new HashMap<String, Object>();
 		JRBeanCollectionDataSource dataSource = new JRBeanCollectionDataSource(puzzle.getBoardRows());
 		parameters.put("puzzle", (Object) dataSource);
 		parameters.put("words", new Parser().getPrintableWordsList(puzzle.getWordsToFind()));
-		JasperPrint reportPrint = JasperFillManager.fillReport(patternFile, parameters, new JREmptyDataSource());
+		parameters.put("image", Main.class.getResourceAsStream("/wzor.png"));
+		JasperPrint reportPrint = JasperFillManager.fillReport(Main.class.getResourceAsStream(patternFile), parameters, new JREmptyDataSource());
 		createPdf(reportPrint, path, 6); 
 	}
 
 	private void createPdf(JasperPrint report, String path, float zoom) throws IOException, JRException {
 		BufferedImage renderedImage = (BufferedImage) JasperPrintManager.printPageToImage(report, 0, zoom);
 
+		/* Zapisywanie png
+		 String outputFile = "output/puzzleImg.png";
+		FileOutputStream outputStream = new FileOutputStream(new File(outputFile));
+		ImageIO.write(renderedImage, "png", outputStream);
+		*/
 		createPdfContainingPng(getImageInputStream(renderedImage), path);
 	} 
 	
@@ -63,10 +71,10 @@ public class JRPrinter {
 
 	private void createPdfContainingPng(InputStream image, String outputName)
 			throws FileNotFoundException, JRException {
-		String patternFile = "src/main/resources/imagePdf.jrxml";
+		String patternFile = "/imagePdf.jasper";
 		HashMap<String, Object> parameters = new HashMap<String, Object>();
 		parameters.put("image", image);
-		JasperPrint reportPrint = JasperFillManager.fillReport(JasperCompileManager.compileReport(patternFile),
+		JasperPrint reportPrint = JasperFillManager.fillReport(Main.class.getResourceAsStream(patternFile),
 				parameters, new JREmptyDataSource());
 		FileOutputStream outputStream = new FileOutputStream(new File(outputName));
 		JasperExportManager.exportReportToPdfStream(reportPrint, outputStream);

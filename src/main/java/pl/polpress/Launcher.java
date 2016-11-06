@@ -7,6 +7,7 @@ import javafx.scene.Scene;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import pl.polpress.util.Logger;
+import pl.polpress.view.MainViewController;
 
 public class Launcher {
 	private final Logger logger = Logger.createLogger();
@@ -24,6 +25,8 @@ public class Launcher {
 		FXMLLoader loader = new FXMLLoader();
 		loader.setLocation(Main.class.getResource("/pl/polpress/view/MainView.fxml"));
 		AnchorPane rootLayout = (AnchorPane) loader.load();
+		MainViewController controller = loader.getController();
+		controller.setStage(stage);
 		stage.centerOnScreen();
 		stage.setTitle("Wykreslanka");
 		stage.setScene(new Scene(rootLayout));

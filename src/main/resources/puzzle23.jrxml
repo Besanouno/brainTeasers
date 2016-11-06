@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- Created with Jaspersoft Studio version 6.3.1.beta-v201607260811 using JasperReports Library version 6.3.1  -->
-<!-- 2016-10-17T13:45:46 -->
+<!-- Created with Jaspersoft Studio version 6.3.1.final using JasperReports Library version 6.3.1  -->
+<!-- 2016-11-04T21:26:43 -->
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="table" pageWidth="550" pageHeight="400" orientation="Landscape" whenNoDataType="NoDataSection" columnWidth="510" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="2" uuid="1aa2b905-9640-4a96-9ad2-f3bb31be9e1c">
 	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="One Empty Record"/>
 	<property name="com.jaspersoft.studio.unit." value="pixel"/>
@@ -109,12 +109,13 @@
 				<text><![CDATA[Wykreślanka]]></text>
 			</staticText>
 			<componentElement>
-				<reportElement stretchType="ContainerHeight" x="-2" y="39" width="529" height="240" uuid="e3398a7d-6db7-4e6d-9ff8-5a71d7a7b7da">
+				<reportElement stretchType="ContainerHeight" x="-3" y="39" width="529" height="240" uuid="e3398a7d-6db7-4e6d-9ff8-5a71d7a7b7da">
 					<property name="com.jaspersoft.studio.layout" value="com.jaspersoft.studio.editor.layout.VerticalRowLayout"/>
 					<property name="com.jaspersoft.studio.table.style.table_header" value="Table 1_TH"/>
 					<property name="com.jaspersoft.studio.table.style.column_header" value="Table 1_CH"/>
 					<property name="com.jaspersoft.studio.table.style.detail" value="Table 1_TD"/>
 					<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
 				</reportElement>
 				<jr:table xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd">
 					<datasetRun subDataset="PuzzleDataset" uuid="30ec6317-3c6d-4b92-912d-6a13a6b31d72">
@@ -208,7 +209,7 @@
 								<textElement>
 									<font size="14"/>
 								</textElement>
-								<textFieldExpression><![CDATA[$F{c6}]]></textFieldExpression>
+								<textFieldExpression><![CDATA[$F{c7}]]></textFieldExpression>
 							</textField>
 						</jr:detailCell>
 					</jr:column>
@@ -424,8 +425,9 @@
 				</jr:table>
 			</componentElement>
 			<staticText>
-				<reportElement positionType="Float" stretchType="ContainerBottom" x="-2" y="285" width="140" height="15" isPrintWhenDetailOverflows="true" uuid="c2acb6e5-bbb0-439a-91d1-eb536c25cef9">
+				<reportElement positionType="Float" stretchType="ContainerBottom" x="-3" y="285" width="140" height="15" isPrintWhenDetailOverflows="true" uuid="c2acb6e5-bbb0-439a-91d1-eb536c25cef9">
 					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
 				</reportElement>
 				<text><![CDATA[Słowa do odnalezienia:]]></text>
 			</staticText>
@@ -434,9 +436,10 @@
 				<textFieldExpression><![CDATA[$P{words}]]></textFieldExpression>
 			</textField>
 			<image>
-				<reportElement x="470" y="-10" width="35" height="35" uuid="898c3c97-c299-46d9-a5da-ea1b86edcda0">
+				<reportElement x="484" y="-5" width="35" height="35" uuid="898c3c97-c299-46d9-a5da-ea1b86edcda0">
 					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
 					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
 				</reportElement>
 				<imageExpression><![CDATA[$P{image}]]></imageExpression>
 			</image>

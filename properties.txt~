@@ -1,5 +1,5 @@
-#Wed Oct 26 22:36:46 CEST 2016
-default_dir=nevermind
-amount=1
-info=false
-errors=false
+#Fri Nov 04 21:47:49 CET 2016
+default_dir=output
+amount=4
+info=true
+errors=true

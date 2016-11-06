@@ -1,9 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- Created with Jaspersoft Studio version 6.3.1.beta-v201607260811 using JasperReports Library version 6.3.1  -->
-<!-- 2016-10-17T11:50:14 -->
-<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="table" pageWidth="550" pageHeight="400" orientation="Landscape" whenNoDataType="NoDataSection" columnWidth="510" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="2" uuid="1aa2b905-9640-4a96-9ad2-f3bb31be9e1c">
+<!-- Created with Jaspersoft Studio version 6.3.1.final using JasperReports Library version 6.3.1  -->
+<!-- 2016-11-04T23:49:46 -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="table" pageWidth="550" pageHeight="400" orientation="Landscape" whenNoDataType="NoDataSection" columnWidth="516" leftMargin="20" rightMargin="14" topMargin="14" bottomMargin="5" uuid="1aa2b905-9640-4a96-9ad2-f3bb31be9e1c">
 	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="One Empty Record"/>
 	<property name="com.jaspersoft.studio.unit." value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.pageHeight" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.pageWidth" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.topMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.bottomMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.leftMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.rightMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.columnWidth" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.columnSpacing" value="pixel"/>
 	<import value="net.sf.jasperreports.engine.data.*"/>
 	<style name="Arial_Normal" isDefault="true" fontName="Arial" pdfFontName="Helvetica" pdfEncoding="Cp1250" isPdfEmbedded="false"/>
 	<style name="Table_TH" mode="Opaque" backcolor="#F0F8FF" pdfEncoding="Cp1250">
@@ -91,27 +99,21 @@
 	<queryString>
 		<![CDATA[]]>
 	</queryString>
-	<background>
-		<band splitType="Stretch"/>
-	</background>
 	<detail>
-		<band height="339" splitType="Stretch">
+		<band height="358" splitType="Stretch">
 			<staticText>
-				<reportElement x="-2" y="0" width="198" height="30" uuid="61be2ed0-5df0-4159-b7d4-c85b45f4ee9f">
-					<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
-				</reportElement>
+				<reportElement x="0" y="0" width="198" height="30" uuid="61be2ed0-5df0-4159-b7d4-c85b45f4ee9f"/>
 				<textElement>
 					<font size="18" isBold="true"/>
 				</textElement>
 				<text><![CDATA[Wykreślanka]]></text>
 			</staticText>
 			<componentElement>
-				<reportElement stretchType="ContainerHeight" x="-2" y="39" width="529" height="240" uuid="e3398a7d-6db7-4e6d-9ff8-5a71d7a7b7da">
+				<reportElement stretchType="ContainerHeight" x="0" y="40" width="529" height="250" uuid="e3398a7d-6db7-4e6d-9ff8-5a71d7a7b7da">
 					<property name="com.jaspersoft.studio.layout" value="com.jaspersoft.studio.editor.layout.VerticalRowLayout"/>
 					<property name="com.jaspersoft.studio.table.style.table_header" value="Table 1_TH"/>
 					<property name="com.jaspersoft.studio.table.style.column_header" value="Table 1_CH"/>
 					<property name="com.jaspersoft.studio.table.style.detail" value="Table 1_TD"/>
-					<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
 				</reportElement>
 				<jr:table xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd">
 					<datasetRun subDataset="PuzzleDataset" uuid="30ec6317-3c6d-4b92-912d-6a13a6b31d72">
@@ -382,19 +384,23 @@
 				</jr:table>
 			</componentElement>
 			<staticText>
-				<reportElement positionType="Float" stretchType="ContainerBottom" x="-2" y="285" width="140" height="15" isPrintWhenDetailOverflows="true" uuid="c2acb6e5-bbb0-439a-91d1-eb536c25cef9">
+				<reportElement positionType="Float" stretchType="ContainerHeight" x="0" y="300" width="140" height="15" isPrintWhenDetailOverflows="true" uuid="c2acb6e5-bbb0-439a-91d1-eb536c25cef9">
 					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
 				</reportElement>
 				<text><![CDATA[Słowa do odnalezienia:]]></text>
 			</staticText>
 			<textField>
-				<reportElement positionType="Float" stretchType="ContainerBottom" x="-3" y="300" width="527" height="30" isPrintWhenDetailOverflows="true" uuid="d94ef7aa-7dc7-4816-acc3-64b3a6301c09"/>
+				<reportElement positionType="Float" stretchType="ContainerBottom" x="0" y="315" width="512" height="43" isPrintWhenDetailOverflows="true" uuid="d94ef7aa-7dc7-4816-acc3-64b3a6301c09">
+					<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
+				</reportElement>
 				<textFieldExpression><![CDATA[$P{words}]]></textFieldExpression>
 			</textField>
 			<image>
-				<reportElement positionType="FixRelativeToBottom" x="470" y="-10" width="35" height="35" uuid="898c3c97-c299-46d9-a5da-ea1b86edcda0">
+				<reportElement positionType="Float" x="477" y="0" width="35" height="35" uuid="898c3c97-c299-46d9-a5da-ea1b86edcda0">
 					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
 					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
 				</reportElement>
 				<imageExpression><![CDATA[$P{image}]]></imageExpression>
 			</image>
