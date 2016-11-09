@@ -24,6 +24,7 @@ public class Config {
 	}
 
 	public static void setString(String key, String value) {
+		if (key == null || value == null) return;
 		properties.setProperty(key, value);
 		try {
 			properties.store(new FileWriter(new File(CONFIG_FILEPATH)), null);

@@ -24,12 +24,13 @@ public class Launcher {
 	private void run(Stage stage) throws IOException {
 		FXMLLoader loader = new FXMLLoader();
 		loader.setLocation(Main.class.getResource("/pl/polpress/view/MainView.fxml"));
-		AnchorPane rootLayout = (AnchorPane) loader.load();
+		AnchorPane rootLayout = (AnchorPane) loader.load(); 
 		MainViewController controller = loader.getController();
 		controller.setStage(stage);
 		stage.centerOnScreen();
 		stage.setTitle("Wykreslanka");
-		stage.setScene(new Scene(rootLayout));
+		Scene scene = new Scene(rootLayout); 
+		stage.setScene(scene);
 		stage.show();
 	}
 }

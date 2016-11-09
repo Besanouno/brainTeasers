@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Created with Jaspersoft Studio version 6.3.1.final using JasperReports Library version 6.3.1  -->
-<!-- 2016-11-05T00:33:45 -->
-<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="table" pageWidth="550" pageHeight="400" orientation="Landscape" whenNoDataType="NoDataSection" columnWidth="510" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="2" uuid="1aa2b905-9640-4a96-9ad2-f3bb31be9e1c">
+<!-- 2016-11-06T20:07:59 -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="table" pageWidth="550" pageHeight="380" orientation="Landscape" whenNoDataType="NoDataSection" columnWidth="510" leftMargin="20" rightMargin="20" topMargin="10" bottomMargin="10" uuid="1aa2b905-9640-4a96-9ad2-f3bb31be9e1c">
 	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="One Empty Record"/>
 	<property name="com.jaspersoft.studio.unit." value="pixel"/>
 	<import value="net.sf.jasperreports.engine.data.*"/>
@@ -96,7 +96,8 @@
 		<band splitType="Stretch"/>
 	</background>
 	<detail>
-		<band height="339" splitType="Stretch">
+		<band height="340" splitType="Stretch">
+			<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
 			<staticText>
 				<reportElement x="0" y="0" width="198" height="30" uuid="61be2ed0-5df0-4159-b7d4-c85b45f4ee9f"/>
 				<textElement>
@@ -105,12 +106,11 @@
 				<text><![CDATA[Wykreślanka]]></text>
 			</staticText>
 			<componentElement>
-				<reportElement stretchType="ContainerHeight" x="0" y="39" width="529" height="240" uuid="e3398a7d-6db7-4e6d-9ff8-5a71d7a7b7da">
+				<reportElement stretchType="ContainerHeight" x="0" y="41" width="529" height="240" uuid="e3398a7d-6db7-4e6d-9ff8-5a71d7a7b7da">
 					<property name="com.jaspersoft.studio.layout" value="com.jaspersoft.studio.editor.layout.VerticalRowLayout"/>
 					<property name="com.jaspersoft.studio.table.style.table_header" value="Table 1_TH"/>
 					<property name="com.jaspersoft.studio.table.style.column_header" value="Table 1_CH"/>
 					<property name="com.jaspersoft.studio.table.style.detail" value="Table 1_TD"/>
-					<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
 					<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
 				</reportElement>
 				<jr:table xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd">
@@ -122,7 +122,7 @@
 						<jr:detailCell style="Table 1_TD" height="20">
 							<property name="com.jaspersoft.studio.unit.width" value="px"/>
 							<textField>
-								<reportElement x="0" y="0" width="23" height="20" uuid="bcce9f1e-b0b8-40ca-bff0-20a4e3f78680"/>
+								<reportElement x="0" y="0" width="24" height="20" uuid="bcce9f1e-b0b8-40ca-bff0-20a4e3f78680"/>
 								<textElement>
 									<font size="14"/>
 								</textElement>
@@ -135,7 +135,7 @@
 						<jr:detailCell style="Table 1_TD" height="20">
 							<property name="com.jaspersoft.studio.unit.width" value="px"/>
 							<textField>
-								<reportElement x="0" y="0" width="23" height="20" uuid="169491da-fd06-4376-a3ec-e6a34fb93c67"/>
+								<reportElement x="0" y="0" width="24" height="20" uuid="169491da-fd06-4376-a3ec-e6a34fb93c67"/>
 								<textElement>
 									<font size="14"/>
 								</textElement>
@@ -148,7 +148,7 @@
 						<jr:detailCell style="Table 1_TD" height="20">
 							<property name="com.jaspersoft.studio.unit.width" value="px"/>
 							<textField>
-								<reportElement x="0" y="0" width="23" height="20" uuid="9d78cc83-2db9-459a-afee-6d4eddc4ffb2"/>
+								<reportElement x="0" y="0" width="24" height="20" uuid="9d78cc83-2db9-459a-afee-6d4eddc4ffb2"/>
 								<textElement>
 									<font size="14"/>
 								</textElement>
@@ -161,7 +161,7 @@
 						<jr:detailCell style="Table 1_TD" height="20">
 							<property name="com.jaspersoft.studio.unit.width" value="px"/>
 							<textField>
-								<reportElement x="0" y="0" width="23" height="20" uuid="eb1b5760-5540-4a9c-9b9d-d791e89a39ea"/>
+								<reportElement x="0" y="0" width="24" height="20" uuid="eb1b5760-5540-4a9c-9b9d-d791e89a39ea"/>
 								<textElement>
 									<font size="14"/>
 								</textElement>
@@ -174,7 +174,7 @@
 						<jr:detailCell style="Table 1_TD" height="20">
 							<property name="com.jaspersoft.studio.unit.width" value="px"/>
 							<textField>
-								<reportElement x="0" y="0" width="23" height="20" uuid="73a21ba9-3d58-4271-bf02-9243e68e916e"/>
+								<reportElement x="0" y="0" width="24" height="20" uuid="73a21ba9-3d58-4271-bf02-9243e68e916e"/>
 								<textElement>
 									<font size="14"/>
 								</textElement>
@@ -187,7 +187,7 @@
 						<jr:detailCell style="Table 1_TD" height="20">
 							<property name="com.jaspersoft.studio.unit.width" value="px"/>
 							<textField>
-								<reportElement x="0" y="0" width="23" height="20" uuid="f0a28d8e-4693-4d56-aa4a-b6cf25d0800f"/>
+								<reportElement x="0" y="0" width="24" height="20" uuid="f0a28d8e-4693-4d56-aa4a-b6cf25d0800f"/>
 								<textElement>
 									<font size="14"/>
 								</textElement>
@@ -200,7 +200,7 @@
 						<jr:detailCell style="Table 1_TD" height="20">
 							<property name="com.jaspersoft.studio.unit.width" value="px"/>
 							<textField>
-								<reportElement x="0" y="0" width="23" height="20" uuid="90eab5f4-dda6-4229-8386-0cae8cc1acde"/>
+								<reportElement x="0" y="0" width="24" height="20" uuid="90eab5f4-dda6-4229-8386-0cae8cc1acde"/>
 								<textElement>
 									<font size="14"/>
 								</textElement>
@@ -213,7 +213,7 @@
 						<jr:detailCell style="Table 1_TD" height="20">
 							<property name="com.jaspersoft.studio.unit.width" value="px"/>
 							<textField>
-								<reportElement x="0" y="0" width="23" height="20" uuid="2b9cab67-1b5a-4468-aa47-8b469725273f"/>
+								<reportElement x="0" y="0" width="24" height="20" uuid="2b9cab67-1b5a-4468-aa47-8b469725273f"/>
 								<textElement>
 									<font size="14"/>
 								</textElement>
@@ -226,7 +226,7 @@
 						<jr:detailCell style="Table 1_TD" height="20">
 							<property name="com.jaspersoft.studio.unit.width" value="px"/>
 							<textField>
-								<reportElement x="0" y="0" width="23" height="20" uuid="8c9d53f1-7f21-4d55-ae9b-ee162615c962"/>
+								<reportElement x="0" y="0" width="24" height="20" uuid="8c9d53f1-7f21-4d55-ae9b-ee162615c962"/>
 								<textElement>
 									<font size="14"/>
 								</textElement>
@@ -239,7 +239,7 @@
 						<jr:detailCell style="Table 1_TD" height="20">
 							<property name="com.jaspersoft.studio.unit.width" value="px"/>
 							<textField>
-								<reportElement x="0" y="0" width="23" height="20" uuid="6b84e91a-295d-4bd3-b846-feb64b65f3f1"/>
+								<reportElement x="0" y="0" width="24" height="20" uuid="6b84e91a-295d-4bd3-b846-feb64b65f3f1"/>
 								<textElement>
 									<font size="14"/>
 								</textElement>
@@ -252,7 +252,7 @@
 						<jr:detailCell style="Table 1_TD" height="20">
 							<property name="com.jaspersoft.studio.unit.width" value="px"/>
 							<textField>
-								<reportElement x="0" y="0" width="23" height="20" uuid="4e912c25-a2e1-4830-9991-a7bea3bb5c6a"/>
+								<reportElement x="0" y="0" width="24" height="20" uuid="4e912c25-a2e1-4830-9991-a7bea3bb5c6a"/>
 								<textElement>
 									<font size="14"/>
 								</textElement>
@@ -265,7 +265,7 @@
 						<jr:detailCell style="Table 1_TD" height="20">
 							<property name="com.jaspersoft.studio.unit.width" value="px"/>
 							<textField>
-								<reportElement x="0" y="0" width="23" height="20" uuid="02c49363-e558-40cc-bf85-578f7754bae9"/>
+								<reportElement x="0" y="0" width="24" height="20" uuid="02c49363-e558-40cc-bf85-578f7754bae9"/>
 								<textElement>
 									<font size="14"/>
 								</textElement>
@@ -278,7 +278,7 @@
 						<jr:detailCell style="Table 1_TD" height="20">
 							<property name="com.jaspersoft.studio.unit.width" value="px"/>
 							<textField>
-								<reportElement x="0" y="0" width="23" height="20" uuid="bf0a9f9b-590c-4191-b941-69888f51f4f9"/>
+								<reportElement x="0" y="0" width="24" height="20" uuid="bf0a9f9b-590c-4191-b941-69888f51f4f9"/>
 								<textElement>
 									<font size="14"/>
 								</textElement>
@@ -292,7 +292,7 @@
 						<jr:detailCell style="Table 1_TD" height="20">
 							<property name="com.jaspersoft.studio.unit.width" value="px"/>
 							<textField>
-								<reportElement x="0" y="0" width="23" height="20" uuid="521958e8-04f4-4c08-937f-0e758d0f29d4"/>
+								<reportElement x="0" y="0" width="24" height="20" uuid="521958e8-04f4-4c08-937f-0e758d0f29d4"/>
 								<textElement>
 									<font size="14"/>
 								</textElement>
@@ -305,7 +305,7 @@
 						<jr:detailCell style="Table 1_TD" height="20">
 							<property name="com.jaspersoft.studio.unit.width" value="px"/>
 							<textField>
-								<reportElement x="0" y="0" width="23" height="20" uuid="2660c7fa-e066-4c2b-ab74-c6c842e65209"/>
+								<reportElement x="0" y="0" width="24" height="20" uuid="2660c7fa-e066-4c2b-ab74-c6c842e65209"/>
 								<textElement>
 									<font size="14"/>
 								</textElement>
@@ -318,7 +318,7 @@
 						<jr:detailCell style="Table 1_TD" height="20">
 							<property name="com.jaspersoft.studio.unit.width" value="px"/>
 							<textField>
-								<reportElement x="0" y="0" width="23" height="20" uuid="905a221a-7256-41ac-ba0c-8464fa835251"/>
+								<reportElement x="0" y="0" width="24" height="20" uuid="905a221a-7256-41ac-ba0c-8464fa835251"/>
 								<textElement>
 									<font size="14"/>
 								</textElement>
@@ -331,7 +331,7 @@
 						<jr:detailCell style="Table 1_TD" height="20">
 							<property name="com.jaspersoft.studio.unit.width" value="px"/>
 							<textField>
-								<reportElement x="0" y="0" width="23" height="20" uuid="d2be312e-cca4-4208-ad18-983b1a02c510"/>
+								<reportElement x="0" y="0" width="24" height="20" uuid="d2be312e-cca4-4208-ad18-983b1a02c510"/>
 								<textElement>
 									<font size="14"/>
 								</textElement>
@@ -344,7 +344,7 @@
 						<jr:detailCell style="Table 1_TD" height="20">
 							<property name="com.jaspersoft.studio.unit.width" value="px"/>
 							<textField>
-								<reportElement x="0" y="0" width="23" height="20" uuid="3465406d-7dff-48c8-8aa3-6a62e11b7b76"/>
+								<reportElement x="0" y="0" width="24" height="20" uuid="3465406d-7dff-48c8-8aa3-6a62e11b7b76"/>
 								<textElement>
 									<font size="14"/>
 								</textElement>
@@ -357,7 +357,7 @@
 						<jr:detailCell style="Table 1_TD" height="20">
 							<property name="com.jaspersoft.studio.unit.width" value="px"/>
 							<textField>
-								<reportElement x="0" y="0" width="23" height="20" uuid="5417d742-0650-4301-a924-b4a06e7bd398"/>
+								<reportElement x="0" y="0" width="24" height="20" uuid="5417d742-0650-4301-a924-b4a06e7bd398"/>
 								<textElement>
 									<font size="14"/>
 								</textElement>
@@ -370,7 +370,7 @@
 						<jr:detailCell style="Table 1_TD" height="20">
 							<property name="com.jaspersoft.studio.unit.width" value="px"/>
 							<textField>
-								<reportElement x="0" y="0" width="23" height="20" uuid="3432fb7b-abdd-45f1-b948-402f3e8b0808"/>
+								<reportElement x="0" y="0" width="24" height="20" uuid="3432fb7b-abdd-45f1-b948-402f3e8b0808"/>
 								<textElement>
 									<font size="14"/>
 								</textElement>
@@ -394,24 +394,24 @@
 				</jr:table>
 			</componentElement>
 			<staticText>
-				<reportElement positionType="Float" stretchType="ContainerBottom" x="0" y="285" width="140" height="15" isPrintWhenDetailOverflows="true" uuid="c2acb6e5-bbb0-439a-91d1-eb536c25cef9">
+				<reportElement positionType="Float" stretchType="ContainerBottom" x="0" y="290" width="140" height="15" isPrintWhenDetailOverflows="true" uuid="c2acb6e5-bbb0-439a-91d1-eb536c25cef9">
 					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
 					<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
 				</reportElement>
 				<text><![CDATA[Słowa do odnalezienia:]]></text>
 			</staticText>
 			<textField>
-				<reportElement positionType="Float" stretchType="ContainerBottom" x="0" y="300" width="527" height="30" isPrintWhenDetailOverflows="true" uuid="d94ef7aa-7dc7-4816-acc3-64b3a6301c09">
+				<reportElement positionType="Float" stretchType="ContainerBottom" x="0" y="305" width="519" height="30" isPrintWhenDetailOverflows="true" uuid="d94ef7aa-7dc7-4816-acc3-64b3a6301c09">
 					<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
 				</reportElement>
 				<textFieldExpression><![CDATA[$P{words}]]></textFieldExpression>
 			</textField>
 			<image>
-				<reportElement positionType="FixRelativeToBottom" x="480" y="0" width="35" height="35" uuid="898c3c97-c299-46d9-a5da-ea1b86edcda0">
-					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
-					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
-					<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
+				<reportElement x="477" y="0" width="39" height="40" uuid="32737ab2-5ab9-4886-82f5-124f58d67073">
 					<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
 				</reportElement>
 				<imageExpression><![CDATA[$P{image}]]></imageExpression>
 			</image>
