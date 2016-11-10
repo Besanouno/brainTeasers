@@ -1,5 +1,7 @@
-#Thu Nov 10 00:52:49 CET 2016
+#Thu Nov 10 14:21:04 CET 2016
 default_name=wykreslanka
+default_dir=docS
 source_file_s=
+amount=11
 info=false
 errors=false

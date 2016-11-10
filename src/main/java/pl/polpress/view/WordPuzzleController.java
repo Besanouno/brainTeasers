@@ -157,14 +157,15 @@ public class WordPuzzleController {
 		new Thread(() -> {
 			int successful = 0;
 			while (successful < count) {
-				String filename = path + tfDefaultName.getText() + successful + ".pdf";
+			/*	String filename = path + tfDefaultName.getText() + successful + ".pdf";
 				if (new JRPrinter().print(createPuzzle(), filename)) {
 					successful++;
 					updateGeneratingView(successful, count);
-				}
+				}*/
 				if (end) {
 					break;
 				}
+				System.out.println("x");
 			}
 			endGeneratingView(successful);
 		}).start();

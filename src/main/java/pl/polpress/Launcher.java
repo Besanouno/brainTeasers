@@ -6,6 +6,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 import pl.polpress.util.Logger;
 import pl.polpress.view.MainViewController;
 
@@ -29,7 +30,7 @@ public class Launcher {
 		controller.setStage(stage);
 		stage.centerOnScreen();
 		stage.setTitle("Wykreslanka");
-		Scene scene = new Scene(rootLayout); 
+		Scene scene = new Scene(rootLayout);  
 		stage.setScene(scene);
 		stage.show();
 	}

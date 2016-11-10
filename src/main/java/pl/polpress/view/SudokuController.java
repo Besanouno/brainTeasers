@@ -62,6 +62,7 @@ public class SudokuController {
 	private void initDirectory() {
 		tfOutputDirectory.setText(Config.getString("default_dir_s"));
 		ivOutputDirectorySetterIcon.setImage(new Image(Main.class.getResourceAsStream("/folder.png")));
+		ivSourceFileSetterIcon.setImage(new Image(Main.class.getResourceAsStream("/folder.png")));
 	}
 
 	private void activateBlockadeOfIllegalCharactersInFilename() {
@@ -82,9 +83,9 @@ public class SudokuController {
 	@FXML
 	private void setOutputDirectory() {
 		DirectoryChooser directoryChooser = new DirectoryChooser();
-		directoryChooser.setTitle("Wybierz katalog");
-		File file = directoryChooser.showDialog(stage);
-		tfOutputDirectory.setText(file.getPath());
+		directoryChooser.setTitle("Wybierz katalog"); 
+		File file = directoryChooser.showDialog(stage);  
+		tfOutputDirectory.setText(file == null? "" : file.getPath());
 	}
 
 	private void saveSettings() { 

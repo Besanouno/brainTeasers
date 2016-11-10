@@ -3,8 +3,8 @@ package pl.polpress.wordPuzzle;
 import java.util.Random;
 
 public class PolishAlphabet {
-	private final static char[] alphabet = { 'A', 'Ä„', 'B', 'C', 'Ä†', 'D', 'E', 'Ä˜', 'F', 'G', 'H', 'I', 'J', 'K', 'L',
-			'Å', 'M', 'N', 'O', 'Ã“', 'P', 'Q', 'R', 'S', 'Åš', 'T', 'U', 'V', 'W', 'Y', 'X', 'Z', 'Å¹', 'Å»' };
+	private final static char[] alphabet = { 'A', '¥', 'B', 'C', 'Æ', 'D', 'E', 'Ê', 'F', 'G', 'H', 'I', 'J', 'K', 'L',
+			'£', 'M', 'N', 'O', 'Ó', 'P', 'Q', 'R', 'S', 'Œ', 'T', 'U', 'V', 'W', 'Y', 'X', 'Z', '¯', '' };
 	private static Random random = new Random();
 
 	public static char getRandomChar() {
